@@ -18,20 +18,18 @@ galleryBox.innerHTML = items;
 
 galleryBox.addEventListener('click', onLinkClick);
 
-const instance = basicLightbox.create(`<img width="1140" height="720" src="#">`);
+const instance = basicLightbox.create(`<img width="1140" height="720" src="#">`, {onShow: (instance) => {window.addEventListener('keydown', onEscPress)},
+onClose: (instance) => {window.removeEventListener('keydown', onEscPress)}});
 
 function onLinkClick(event) {
   event.preventDefault();
   instance.element().querySelector('img').src = event.target.dataset.source;
   instance.show(); 
-  window.addEventListener('keydown', onEscPress)
 }
 
 function onEscPress(event) {
-  console.log(event);
  if(event.code === "Escape") {
   instance.close();
-  window.removeEventListener('keydown', onEscPress);
  }
 }
 
@@ -40,11 +38,3 @@ console.log(galleryItems);
 
 
 
-
-
-
-// function onLinkClick(event) {
-//     event.preventDefault();
-//     const instance = basicLightbox.create(`<img width="1140" height="720" src="${event.target.dataset.source}">`)
-// 	  instance.show();  
-// }

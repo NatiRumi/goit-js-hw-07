@@ -8,15 +8,27 @@ const items = galleryItems.map(item => {
 
 const galleryBox = document.querySelector('.gallery');
 galleryBox.innerHTML = items;
-    
-galleryBox.addEventListener('click', onLinkClick);
 
-function onLinkClick(event) {
-    event.preventDefault();
-    let gallery = new SimpleLightbox('.gallery a', { caption: true, captionSelector: 'img[alt]', captionType: 'attr', captionsData: 'alt', captionPosition: 'bottom', captionDelay: 250 });   
-}
+
+let lightbox = new SimpleLightbox('.gallery a', { caption: true, captionSelector: 'img[alt]', captionType: 'attr', captionsData: 'alt', captionPosition: 'bottom', captionDelay: 250 }); 
+// var lightbox = $('.gallery a').simpleLightbox({ caption: true, captionSelector: 'img[alt]', captionType: 'attr', captionsData: 'alt', captionPosition: 'bottom', captionDelay: 250 });
+
 
 console.log(galleryItems);
+
+
+
+
+
+    
+// galleryBox.addEventListener('click', onLinkClick);
+
+// function onLinkClick(event) {
+//     event.preventDefault();
+//     let gallery = new SimpleLightbox('.gallery a', { caption: true, captionSelector: 'img[alt]', captionType: 'attr', captionsData: 'alt', captionPosition: 'bottom', captionDelay: 250 });   
+// }
+
+
 
 
 
